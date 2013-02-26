@@ -1,6 +1,6 @@
 public virtual class SimpleFormatter extends Formatter
 {
-	private static final String LINE_BREAK = '\r\n';
+	public static final String LINE_BREAK = '\r\n';
 	public virtual override String format(LogRecord record)
 	{
 		if(record.getException() == null)

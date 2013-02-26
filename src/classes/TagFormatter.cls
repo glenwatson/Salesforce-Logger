@@ -12,6 +12,6 @@ public virtual class TagFormatter extends SimpleFormatter
 	
 	public virtual override String format(LogRecord record)
 	{
-		return tag + super.format(record);
+		return tag + ':' + super.format(record);
 	}
 }
