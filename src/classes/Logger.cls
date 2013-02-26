@@ -5,74 +5,16 @@
 */
 public class Logger
 {
+	private static final System.LoggingLevel DEFAULT_LEVEL = System.LoggingLevel.DEBUG;
 	private static List<Handler> handlers = new List<Handler>();
 	static
 	{
-		handlers.add(new DebugLogHandler(new HeaderFooterFormatter('****','------')));
+		handlers.add(new DebugLogHandler(new SimpleFormatter()));
 	}
 	private static Filter filter;
 	
 	public Logger() 
 	{}
-		
-	public static void log(LogRecord record)
-	{
-		publish(record);
-	}
-	
-	public static void log(System.LoggingLevel lvl, String msg)
-	{
-		publish(new LogRecord(lvl, msg));
-	}
-	
-	public static void log(System.LoggingLevel lvl, String msg, Exception ex)
-	{
-		publish(new LogRecord(lvl, msg, ex));
-	}
-	
-	public static void log(String msg, Exception ex)
-	{
-		publish(new LogRecord(System.LoggingLevel.ERROR, msg, ex));
-	}
-	
-	/* Convenience Methods */
-	/*
-		To replace System.debug()
-	*/
-	public static void debug(System.LoggingLevel lvl, String msg)
-	{
-		publish(new LogRecord(lvl, msg));
-	}
-	/* Method for each level */
-	public static void error(String msg)
-	{
-		publish(new LogRecord(System.LoggingLevel.ERROR, msg));
-	}
-	public static void warn(String msg)
-	{
-		publish(new LogRecord(System.LoggingLevel.WARN, msg));
-	}
-	public static void debug(String msg)
-	{
-		publish(new LogRecord(System.LoggingLevel.DEBUG, msg));
-	}
-	public static void info(String msg)
-	{
-		publish(new LogRecord(System.LoggingLevel.INFO, msg));
-	}
-	public static void fine(String msg)
-	{
-		publish(new LogRecord(System.LoggingLevel.FINE, msg));
-	}
-	public static void finer(String msg)
-	{
-		publish(new LogRecord(System.LoggingLevel.FINER, msg));
-	}
-	public static void finest(String msg)
-	{
-		publish(new LogRecord(System.LoggingLevel.FINEST, msg));
-	}
-	
 	
 	public static void addHandler(Handler handler)
 	{
@@ -97,5 +39,90 @@ public class Logger
 				handler.publish(record);
 			}
 		}
+	}
+		
+	public static void log(System.LoggingLevel lvl, String msg)
+	{
+		publish(new LogRecord(lvl, msg));
+	}
+	
+	public static void log(System.LoggingLevel lvl, String msg, Exception ex)
+	{
+		publish(new LogRecord(lvl, msg, ex));
+	}
+	
+	public static void log(String msg, Exception ex)
+	{
+		publish(new LogRecord(System.LoggingLevel.ERROR, msg, ex));
+	}
+	
+	/* Convenience Methods */
+	/* Method for each level */
+	public static void error(String msg)
+	{
+		log(System.LoggingLevel.ERROR, msg);
+	}
+	public static void warn(String msg)
+	{
+		log(System.LoggingLevel.WARN, msg);
+	}
+	public static void debug(String msg)
+	{
+		log(System.LoggingLevel.DEBUG, msg);
+	}
+	public static void info(String msg)
+	{
+		log(System.LoggingLevel.INFO, msg);
+	}
+	public static void fine(String msg)
+	{
+		log(System.LoggingLevel.FINE, msg);
+	}
+	public static void finer(String msg)
+	{
+		log(System.LoggingLevel.FINER, msg);
+	}
+	public static void finest(String msg)
+	{
+		log(System.LoggingLevel.FINEST, msg);
+	}
+	/*
+		To replace System.debug()
+	*/
+	/* all single types */
+	public static void debug(System.LoggingLevel lvl, Object obj)
+	{
+		log(lvl, String.valueOf(obj));
+	}
+	public static void debug(Object obj)
+	{
+		log(DEFAULT_LEVEL, String.valueOf(obj));
+	}
+	/* lists */
+	public static void debug(List<Object> objs)
+	{
+		log(DEFAULT_LEVEL, '{'+String.join(objs, ', ')+'}');
+	}
+	public static void debug(System.LoggingLevel lvl, List<Object> objs)
+	{
+		log(lvl, '{'+String.join(objs, ', ')+'}');
+	}
+	/* sets */
+	public static void debug(Set<Object> objs)
+	{
+		log(DEFAULT_LEVEL, '{'+String.join(new List<Object>(objs), ', ')+'}');
+	}
+	public static void debug(System.LoggingLevel lvl, Set<Object> objs)
+	{
+		log(lvl, '{'+String.join(new List<Object>(objs), ', ')+'}');
+	}
+	/* maps */
+	public static void debug(Map<Object, Object> objs)
+	{
+		log(DEFAULT_LEVEL, '{'+String.join(new List<Object>(objs.keySet()), ', ')+'}');
+	}
+	public static void debug(System.LoggingLevel lvl, Map<Object, Object> objs)
+	{
+		log(lvl, '{'+String.join(new List<Object>(objs.keySet()), ', ')+'}');
 	}
 }
