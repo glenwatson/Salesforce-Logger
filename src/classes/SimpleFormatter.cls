@@ -1,4 +1,4 @@
-public  class SimpleFormatter extends Formatter
+public class SimpleFormatter extends Formatter
 {
 	private static final String LINE_BREAK = '\r\n';
 	public override String format(LogRecord record)
@@ -6,6 +6,15 @@ public  class SimpleFormatter extends Formatter
 		if(record.getException() == null)
 			return record.getMessage();
 		else
-			return record.getMessage() + LINE_BREAK + record.getException().getMessage() + LINE_BREAK + record.getException().getStackTraceString();
+			return record.getMessage() + LINE_BREAK + formatException(record.getException());
+	}
+	
+	public static String formatException(Exception ex)
+	{
+		return ex.getTypeName() +
+				LINE_BREAK + 
+				ex.getMessage() + 
+				LINE_BREAK + 
+				ex.getStackTraceString();
 	}
 }

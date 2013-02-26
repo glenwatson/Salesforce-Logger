@@ -8,10 +8,11 @@ public class LogRecord
 	private System.LoggingLevel level;
 	private String message;
 	private System.Exception ex;
-	private Date eventTime;
+	private DateTime eventTimestamp;
 	
 	public LogRecord(System.LoggingLevel level, String message, System.Exception ex)
 	{
+		eventTimestamp = System.now();
 		this.level = level;
 		this.message = message;
 		this.ex = ex;
@@ -19,6 +20,7 @@ public class LogRecord
 	
 	public LogRecord(System.LoggingLevel level, String message)
 	{
+		eventTimestamp = System.now();
 		this.level = level;
 		this.message = message;
 	}
@@ -53,13 +55,13 @@ public class LogRecord
 		this.ex = ex;
 	}
 	
-	public Date getEventTime()
+	public DateTime getEventTimestamp()
 	{
-		return eventTime;
+		return eventTimestamp;
 	}
 	
-	public void setEventTime(Date eventTime)
+	public void setEventTimestamp(DateTime eventTime)
 	{
-		this.eventTime = eventTime;
+		this.eventTimestamp = eventTime;
 	}
 }

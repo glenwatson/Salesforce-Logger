@@ -54,7 +54,7 @@
         <picklist>
             <picklistValues>
                 <fullName>DEBUG</fullName>
-                <default>true</default>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>ERROR</fullName>
@@ -92,6 +92,15 @@
         <length>32768</length>
         <type>LongTextArea</type>
         <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Timestamp__c</fullName>
+        <defaultValue>NOW()</defaultValue>
+        <description>When the logged error occurred</description>
+        <externalId>false</externalId>
+        <label>Timestamp</label>
+        <required>true</required>
+        <type>DateTime</type>
     </fields>
     <label>Database Log Record</label>
     <nameField>
