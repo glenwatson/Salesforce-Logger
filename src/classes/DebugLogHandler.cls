@@ -4,11 +4,15 @@
 */
 public class DebugLogHandler extends Handler
 {
+	public DebugLogHandler(Formatter formatter)
+	{
+		setFormatter(formatter);
+	}
 	public override void publish(LogRecord record)
 	{
-		if(getFilter().isLoggable(record))
+		if(isLoggable(record))
 			System.debug(getFormatter().format(record));
 	}
 	
-	public override void close() {}
+	public override void close() {} //nothing to close
 }

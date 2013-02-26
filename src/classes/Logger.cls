@@ -5,93 +5,97 @@
 */
 public class Logger
 {
-	protected List<Handler> handlers;
-	protected Filter filter;
-	protected System.LoggingLevel level;
+	private static List<Handler> handlers = new List<Handler>();
+	static
+	{
+		handlers.add(new DebugLogHandler(new SimpleFormatter()));
+	}
+	private static Filter filter;
 	
 	public Logger() 
-	{
-		handlers = new List<Handler>();
-	}
+	{}
 		
-	public void log(LogRecord record)
+	public static void log(LogRecord record)
 	{
 		publish(record);
 	}
 	
-	public void log(System.LoggingLevel level, String msg)
+	public static void log(System.LoggingLevel lvl, String msg)
 	{
-		publish(new LogRecord(level, msg));
+		publish(new LogRecord(lvl, msg));
 	}
 	
-	public void log(System.LoggingLevel level, String msg, Exception ex)
+	public static void log(System.LoggingLevel lvl, String msg, Exception ex)
 	{
-		publish(new LogRecord(level, msg, ex));
+		publish(new LogRecord(lvl, msg, ex));
+	}
+	
+	public static void log(String msg, Exception ex)
+	{
+		publish(new LogRecord(System.LoggingLevel.ERROR, msg, ex));
 	}
 	
 	/* Convenience Methods */
 	/*
-		To replace System.debug
+		To replace System.debug()
 	*/
-	public void debug(System.LoggingLevel level, String msg)
+	public static void debug(System.LoggingLevel lvl, String msg)
 	{
-		publish(new LogRecord(System.LoggingLevel.DEBUG, msg));
+		publish(new LogRecord(lvl, msg));
 	}
 	/* Method for each level */
-	public void error(String msg)
+	public static void error(String msg)
 	{
 		publish(new LogRecord(System.LoggingLevel.ERROR, msg));
 	}
-	public void warn(String msg)
+	public static void warn(String msg)
 	{
 		publish(new LogRecord(System.LoggingLevel.WARN, msg));
 	}
-	public void debug(String msg)
+	public static void debug(String msg)
 	{
 		publish(new LogRecord(System.LoggingLevel.DEBUG, msg));
 	}
-	public void info(String msg)
+	public static void info(String msg)
 	{
 		publish(new LogRecord(System.LoggingLevel.INFO, msg));
 	}
-	public void fine(String msg)
+	public static void fine(String msg)
 	{
 		publish(new LogRecord(System.LoggingLevel.FINE, msg));
 	}
-	public void finer(String msg)
+	public static void finer(String msg)
 	{
 		publish(new LogRecord(System.LoggingLevel.FINER, msg));
 	}
-	public void finest(String msg)
+	public static void finest(String msg)
 	{
 		publish(new LogRecord(System.LoggingLevel.FINEST, msg));
 	}
 	
 	
-	public void addHandler(Handler handler)
+	public static void addHandler(Handler handler)
 	{
 		handlers.add(handler);
 	}
 	
-	public void setLevel(System.LoggingLevel l)
-	{
-		level = l;
-	}
-	
-	public void setFilter(Filter f)
+	public static void setFilter(Filter f)
 	{
 		filter = f;
 	}
-	public Filter getFilter()
+	public static Filter getFilter()
 	{
 		return filter;
 	}
 	
-	private void publish(LogRecord record)
+	private static void publish(LogRecord record)
 	{
-		for(Handler handler : handlers)
+		if(getFilter() == null || (getFilter() != null && getFilter().isLoggable(record)))
 		{
-			handler.publish(record);
+			for(Handler handler : handlers)
+			{
+				handler.publish(record);
+			}
 		}
 	}
 }
