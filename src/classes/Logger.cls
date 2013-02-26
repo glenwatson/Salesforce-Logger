@@ -29,7 +29,7 @@ public class Logger
 		publish(new LogRecord(level, msg, ex));
 	}
 	
-	/* convenience methods */
+	/* Convenience Methods */
 	/*
 		To replace System.debug
 	*/
@@ -37,7 +37,7 @@ public class Logger
 	{
 		publish(new LogRecord(System.LoggingLevel.DEBUG, msg));
 	}
-	/* method for each level */
+	/* Method for each level */
 	public void error(String msg)
 	{
 		publish(new LogRecord(System.LoggingLevel.ERROR, msg));

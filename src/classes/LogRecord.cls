@@ -43,12 +43,12 @@ public class LogRecord
 		this.message = message;
 	}
 
-	public System.Exception getEx()
+	public System.Exception getException()
 	{
 		return ex;
 	}
 
-	public void setEx(System.Exception ex)
+	public void setException(System.Exception ex)
 	{
 		this.ex = ex;
 	}

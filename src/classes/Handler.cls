@@ -9,14 +9,14 @@ public abstract class Handler
 	private Formatter formatter;
 	private System.LoggingLevel level;
 	
-	public Handler() {} 
+	public Handler() {}
 	
 	public abstract void publish(LogRecord record);
 	public abstract void close();
 	
 	public boolean isLoggable(LogRecord record)
 	{
-		return filter.isLoggable(record);
+		return filter == null ? true : filter.isLoggable(record);
 	}
 	
 	public void setLevel(System.LoggingLevel l)
