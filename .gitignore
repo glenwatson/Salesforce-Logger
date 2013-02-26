@@ -1,3 +1,4 @@
 salesforce.schema
 .settings/
 .project
+*.bak
