@@ -92,37 +92,54 @@ public class Logger
 	/* all single types */
 	public static void debug(System.LoggingLevel lvl, Object obj)
 	{
-		log(lvl, String.valueOf(obj));
+		log(lvl, toString(obj));
 	}
 	public static void debug(Object obj)
 	{
-		log(DEFAULT_LEVEL, String.valueOf(obj));
+		log(DEFAULT_LEVEL, toString(obj));
 	}
 	/* lists */
 	public static void debug(List<Object> objs)
 	{
-		log(DEFAULT_LEVEL, '{'+String.join(objs, ', ')+'}');
+		log(DEFAULT_LEVEL, toString(objs));
 	}
 	public static void debug(System.LoggingLevel lvl, List<Object> objs)
 	{
-		log(lvl, '{'+String.join(objs, ', ')+'}');
+		log(lvl, toString(objs));
 	}
 	/* sets */
 	public static void debug(Set<Object> objs)
 	{
-		log(DEFAULT_LEVEL, '{'+String.join(new List<Object>(objs), ', ')+'}');
+		log(DEFAULT_LEVEL, toString(objs));
 	}
 	public static void debug(System.LoggingLevel lvl, Set<Object> objs)
 	{
-		log(lvl, '{'+String.join(new List<Object>(objs), ', ')+'}');
+		log(lvl, toString(objs));
 	}
 	/* maps */
 	public static void debug(Map<Object, Object> objs)
 	{
-		log(DEFAULT_LEVEL, '{'+String.join(new List<Object>(objs.keySet()), ', ')+'}');
+		log(DEFAULT_LEVEL, toString(objs));
 	}
 	public static void debug(System.LoggingLevel lvl, Map<Object, Object> objs)
 	{
-		log(lvl, '{'+String.join(new List<Object>(objs.keySet()), ', ')+'}');
+		log(lvl, toString(objs));
+	}
+	
+	private static String toString(Object obj)
+	{
+		return String.valueOf(obj);
+	}
+	private static String toString(List<Object> objs)
+	{
+		return '{'+String.join(objs, ', ')+'}';
+	}
+	private static String toString(Set<Object> objs)
+	{
+		return '{'+String.join(new List<Object>(objs), ', ')+'}';
+	}
+	private static String toString(Map<Object, Object> objs)
+	{
+		return '{'+String.join(new List<Object>(objs.keySet()), ', ')+'}';
 	}
 }
