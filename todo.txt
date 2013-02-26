@@ -1,3 +1,4 @@
 implement LogManager
 	don't implement hierarchy
 write tests for everything
+add class level comments
