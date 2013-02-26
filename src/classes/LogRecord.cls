@@ -9,55 +9,55 @@ public class LogRecord
 	private String message;
 	private System.Exception ex;
 	private Date eventTime;
-
+	
 	public LogRecord(System.LoggingLevel level, String message, System.Exception ex)
 	{
 		this.level = level;
 		this.message = message;
 		this.ex = ex;
 	}
-
+	
 	public LogRecord(System.LoggingLevel level, String message)
 	{
 		this.level = level;
 		this.message = message;
 	}
-
+	
 	public System.LoggingLevel getLevel()
 	{
 		return level;
 	}
-
+	
 	public void setLevel(System.LoggingLevel level)
 	{
 		this.level = level;
 	}
-
+	
 	public String getMessage()
 	{
 		return message;
 	}
-
+	
 	public void setMessage(String message)
 	{
 		this.message = message;
 	}
-
+	
 	public System.Exception getException()
 	{
 		return ex;
 	}
-
+	
 	public void setException(System.Exception ex)
 	{
 		this.ex = ex;
 	}
-
+	
 	public Date getEventTime()
 	{
 		return eventTime;
 	}
-
+	
 	public void setEventTime(Date eventTime)
 	{
 		this.eventTime = eventTime;

@@ -6,7 +6,8 @@ public class DebugLogHandler extends Handler
 {
 	public override void publish(LogRecord record)
 	{
-		System.debug(record.getLevel(), record.getMessage() + record.getException());
+		if(getFilter().isLoggable(record))
+			System.debug(getFormatter().format(record));
 	}
 	
 	public override void close() {}
