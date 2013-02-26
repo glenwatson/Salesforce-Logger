@@ -9,3 +9,5 @@ Todo
 - Write handler that appends to an Attachment
 - Write handler that POSTs to a REST endpoint
 - Write tests for everything
+- Write JSON Formatter
+- Write XML Formatter
