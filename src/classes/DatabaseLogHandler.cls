@@ -2,9 +2,9 @@
 	@author Glen Watson
 	@created Feb 25, 2013
 */
-public class DatabaseLogHandler extends Handler
+public virtual class DatabaseLogHandler extends Handler
 {
-	public override void publish(LogRecord record)
+	public virtual override void publish(LogRecord record)
 	{
 		if(isLoggable(record))
 			insert new DatabaseLogRecord__c(
@@ -14,5 +14,5 @@ public class DatabaseLogHandler extends Handler
 				Timestamp__c = record.getEventTimestamp());
 	}
 	
-	public override void close() {} //nothing to close
+	public virtual override void close() {} //nothing to close
 }

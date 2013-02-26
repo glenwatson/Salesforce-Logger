@@ -2,7 +2,7 @@
 	@author Glen Watson
 	@created Feb 25, 2013
 */
-public class TagFormatter extends SimpleFormatter
+public virtual class TagFormatter extends SimpleFormatter
 {
 	private String tag;
 	public TagFormatter(String tag)
@@ -10,7 +10,7 @@ public class TagFormatter extends SimpleFormatter
 		this.tag = tag;
 	}
 	
-	public override String format(LogRecord record)
+	public virtual override String format(LogRecord record)
 	{
 		return tag + super.format(record);
 	}

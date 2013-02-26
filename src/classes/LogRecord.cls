@@ -3,7 +3,7 @@
 	@created Feb 25, 2013
 	@see http://docs.oracle.com/javase/1.4.2/docs/api/java/util/logging/LogRecord.html
 */
-public class LogRecord
+public virtual class LogRecord
 {
 	private System.LoggingLevel level;
 	private String message;
