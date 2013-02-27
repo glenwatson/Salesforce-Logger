@@ -8,4 +8,3 @@ Todo
 - Implement LogManager (don't implement hierarchy)
 - Write handler that appends to an Attachment
 - Write tests for everything
-- Write XML Formatter
