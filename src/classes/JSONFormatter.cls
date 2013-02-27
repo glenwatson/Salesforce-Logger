@@ -1,3 +1,7 @@
+/*
+	@author Glen Watson
+	@created Feb 26, 2013
+*/
 public with sharing class JSONFormatter extends Formatter
 {
 	private JSONGenerator gen;
