@@ -8,7 +8,7 @@ public virtual class DatabaseLogHandler extends Handler
 	{
 		if(isLoggable(record))
 			insert new DatabaseLogRecord__c(
-				Level__c = record.getLevel()+'', //can't get .toString() to compile on enums
+				Level__c = String.valueOf(record.getLevel()),
 				Message__c = record.getMessage(), 
 				Exception__c = SimpleFormatter.formatException(record.getException()),
 				Timestamp__c = record.getEventTimestamp());
