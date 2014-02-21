@@ -9,7 +9,7 @@ public class Logger
 	private static List<Handler> handlers = new List<Handler>();
 	static
 	{
-		handlers.add(new DebugLogHandler(new JSONFormatter()));
+		handlers.add(new DebugLogHandler(new SimpleJSONFormatter(true)));
 	}
 	private static Filter filter;
 	

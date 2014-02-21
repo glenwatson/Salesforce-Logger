@@ -11,10 +11,14 @@ public virtual class SimpleFormatter extends Formatter
 	
 	public static String formatException(Exception ex)
 	{
-		return ex.getTypeName() +
+		String out = ex.getTypeName() +
 				LINE_BREAK + 
 				ex.getMessage() + 
 				LINE_BREAK + 
 				ex.getStackTraceString();
+		if(ex.getCause() != null)
+			out =+ LINE_BREAK + 'Caused by: ' + formatException(ex.getCause()); 
+		
+		return out;
 	}
 }
