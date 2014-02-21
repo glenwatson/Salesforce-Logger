@@ -38,6 +38,15 @@
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
     <fields>
+        <fullName>Details__c</fullName>
+        <description>Any extra information about the log</description>
+        <externalId>false</externalId>
+        <label>Details</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
         <fullName>Exception__c</fullName>
         <description>The stacktrace of the exception</description>
         <externalId>false</externalId>
@@ -94,6 +103,31 @@
         <visibleLines>10</visibleLines>
     </fields>
     <fields>
+        <fullName>OrgAddress__c</fullName>
+        <externalId>false</externalId>
+        <label>Org Address</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>OrgName__c</fullName>
+        <externalId>false</externalId>
+        <label>Org Name</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RecordId__c</fullName>
+        <externalId>false</externalId>
+        <label>Record Id</label>
+        <length>18</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Timestamp__c</fullName>
         <defaultValue>NOW()</defaultValue>
         <description>When the logged error occurred</description>
@@ -101,6 +135,45 @@
         <label>Timestamp</label>
         <required>true</required>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Version__c</fullName>
+        <description>The version of the app</description>
+        <externalId>false</externalId>
+        <label>Version</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>8</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>orgId__c</fullName>
+        <externalId>false</externalId>
+        <label>orgId</label>
+        <length>18</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>userId__c</fullName>
+        <description>The Id of the User that generated the log</description>
+        <externalId>false</externalId>
+        <label>userId</label>
+        <length>18</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>username__c</fullName>
+        <externalId>false</externalId>
+        <label>username</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <label>Database Log Record</label>
     <nameField>
