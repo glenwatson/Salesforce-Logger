@@ -1,4 +1,6 @@
 /*
+ *  Allows you to specify a prefix line and a suffix line to
+ *  your message
  *	@author Glen Watson
  *	@created 2013-02-25
  */

@@ -1,4 +1,6 @@
 /*
+ *  Uses to prefix your debug messages with a string
+ *  Can be used to prefix the specific class or an entire namespace 
  *	@author Glen Watson
  *	@created 2013-02-25
  */

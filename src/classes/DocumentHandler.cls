@@ -1,4 +1,5 @@
 /*
+ *  Stores the message in a Salesforce Document
  *	@author Glen Watson
  *	@created 2013-02-26
  */

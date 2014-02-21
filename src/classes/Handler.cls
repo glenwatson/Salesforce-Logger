@@ -1,7 +1,7 @@
 /*
  *	@author Glen Watson
  *	@created 2013-02-25
- *	@see http://docs.oracle.com/javase/1.4.2/docs/api/java/util/logging/Handler.html
+ *	@see http://docs.oracle.com/javase/6/docs/api/java/util/logging/Handler.html
  */
 public abstract class Handler {
 	private Filter filter;

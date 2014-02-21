@@ -1,4 +1,5 @@
 /*
+ *  Stores the log in a DatabaseLogRecord__c record
  *	@author Glen Watson
  *	@created 2013-02-25
  */

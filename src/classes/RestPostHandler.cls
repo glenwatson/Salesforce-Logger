@@ -1,4 +1,5 @@
 /*
+ *  POSTs the log to the URL passed in on initalization
  *	@author Glen Watson
  *	@created 2013-02-27
  */

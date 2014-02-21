@@ -1,7 +1,7 @@
 /*
  *	@author Glen Watson
  *	@created 2013-02-25
- *	@see http://docs.oracle.com/javase/1.4.2/docs/api/java/util/logging/Logger.html
+ *	@see http://docs.oracle.com/javase/6/docs/api/java/util/logging/Logger.html
  */
 public class Logger {
 	private static final System.LoggingLevel DEFAULT_LEVEL = System.LoggingLevel.DEBUG;

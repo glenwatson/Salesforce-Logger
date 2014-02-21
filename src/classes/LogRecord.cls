@@ -1,7 +1,7 @@
 /*
  *	@author Glen Watson
  *	@created 2013-02-25
- *	@see http://docs.oracle.com/javase/1.4.2/docs/api/java/util/logging/LogRecord.html
+ *	@see http://docs.oracle.com/javase/6/docs/api/java/util/logging/LogRecord.html
  */
 public virtual class LogRecord {
 	private System.LoggingLevel level;

@@ -1,4 +1,5 @@
 /*
+ *  Logs the message to Salesforce's logger
  *	@author Glen Watson
  *	@created 2013-02-25
  */

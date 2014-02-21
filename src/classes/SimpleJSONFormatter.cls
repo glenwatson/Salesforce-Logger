@@ -1,4 +1,11 @@
 /*
+ *  Formats the log in the following format:
+ *  {
+ *    level: <level>,
+ *    timestamp: <timestamp>,
+ *    message: <message>,
+ *    [exception: <exception>]
+ *  }
  *	@author Glen Watson
  *	@created 2013-02-26
  */
